@@ -440,4 +440,21 @@ public class Steps extends ScenarioSteps {
     public void extract_otp_from_API() throws Throwable{
         homePage.extractOTP();
     }
+
+    // API
+    @Step
+    public void print_data_from_api() throws Throwable{
+        fetchDataFromApi.getDataFromApiGETMethod();
+    }
+
+    @Step
+    public void verify_status_code_should_be(int arg1) {
+        Assert.assertEquals(fetchDataFromApi.returnStatusCode(),arg1);
+    }
+
+    @Step
+    public void print_first_and_last_user_data() {
+        fetchDataFromApi.getAndPrintFirstAndLastUserData();
+    }
+
 }

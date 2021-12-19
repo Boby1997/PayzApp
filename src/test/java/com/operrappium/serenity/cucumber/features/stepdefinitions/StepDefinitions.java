@@ -476,4 +476,21 @@ public class StepDefinitions extends BasePage{
         steps.extract_otp_from_API();
     }
 
+
+    //API test
+    @Given("^print data from api$")
+    public void print_data_from_api() throws Throwable{
+        steps.print_data_from_api();
+    }
+
+    @Then("^Verify status code should be (\\d+)$")
+    public void verify_status_code_should_be(int arg1) {
+        steps.verify_status_code_should_be(arg1);
+    }
+
+    @Then("^print first and last user data$")
+    public void print_first_and_last_user_data() {
+        steps.print_first_and_last_user_data();
+    }
+
 }
