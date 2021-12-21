@@ -29,6 +29,7 @@ public class Steps extends ScenarioSteps {
     private TripPage tripPage;
     private DashboardPage dashboardPage;
     FetchDataFromApi fetchDataFromApi;
+    PostRequestDemo postRequestDemo;
 
     @Step
     public void user_is_on_login_page() throws Throwable {
@@ -455,6 +456,16 @@ public class Steps extends ScenarioSteps {
     @Step
     public void print_first_and_last_user_data() {
         fetchDataFromApi.getAndPrintFirstAndLastUserData();
+    }
+
+    @Step
+    public void run_post_request_as_example() throws Throwable{
+        postRequestDemo.postRequestDemo1();
+    }
+
+    @Step
+    public void login_with_Bynfor_API() {
+
     }
 
 }

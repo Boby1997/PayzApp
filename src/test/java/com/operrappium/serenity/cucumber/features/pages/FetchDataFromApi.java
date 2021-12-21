@@ -68,6 +68,8 @@ public class FetchDataFromApi extends BasePage{
 //        System.out.println("extract data: "+ jsonPath.prettyPrint());
         String firstUserEmail = jsonPath.get("data[0].email");
         System.out.println("firstUserEmail: "+ firstUserEmail);
+        String lastUserEmail = jsonPath.get("data[-1].email");
+        System.out.println("lastUserEmail: "+ lastUserEmail);
     }
 
 

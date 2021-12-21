@@ -7,3 +7,9 @@ Feature: PayzApp Test
   Scenario: get first and last user data
     Then print first and last user data
     Then Verify status code should be 200
+
+  Scenario: Post request example
+    And run post request as example
+
+  Scenario: Login bynfor API
+    And login with Bynfor API

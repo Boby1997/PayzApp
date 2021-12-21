@@ -493,4 +493,13 @@ public class StepDefinitions extends BasePage{
         steps.print_first_and_last_user_data();
     }
 
+    @Given("^run post request as example$")
+    public void run_post_request_as_example() throws Throwable{
+        steps.run_post_request_as_example();
+    }
+
+    @Given("^login with Bynfor API$")
+    public void login_with_Bynfor_API() {
+        steps.login_with_Bynfor_API();
+    }
 }
