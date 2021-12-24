@@ -136,6 +136,45 @@ public class PostRequestDemo extends BasePage{
         String jsonString = response.getBody().asString();
         String token = JsonPath.from(jsonString).get("access_token");
         System.out.println("token is : .... "+token);
+    }
 
+    public void loginAndEditAccountInfo(){
+        //login
+        RestAssured.baseURI ="https://dev-gateway-api.bynfor.com/auth/oauth/token";
+        RequestSpecification request = RestAssured.given();
+        request.header("Authorization","Basic and0Y2xpZW50OlBhc3MhMjM0");
+        request.header("Content-Type","application/x-www-form-urlencoded");
+        request.header("Accept","application/json, text/plain, */*");
+        request.queryParam("grant_type","password");
+        request.queryParam("scope","webclient customerfrontend");
+        request.queryParam("bfsignature","IYf2yKnvi8OBiW%2Fnf36JjzwcjfUJzHakMhRzHDZVBXfOUEZmuQLaVgDfpSN1LVv6bAp26ByI8ru7W5%2FxiFDTQw%3D%3D");
+        request.queryParam("password","5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
+        request.queryParam("username","bynfor51");
+        Response response = request.post("https://dev-gateway-api.bynfor.com/auth/oauth/token");
+        response.prettyPrint();
+        String jsonString = response.getBody().asString();
+        String token = JsonPath.from(jsonString).get("access_token");
+        System.out.println("token is : .... "+token);
+
+        RequestSpecification request2 = RestAssured.given();
+        //update info
+        JSONObject request1 = new JSONObject();
+        request1.put("id","7541");
+        request1.put("firstName","bynfor");
+        request1.put("lastName","2312API3");
+        request1.put("gender",null);
+        request1.put("businessName","APTesttest123456");
+        request1.put("languageId",1);
+        request1.put("registerSecurityQuestionId",null);
+        request1.put("registerSecurityAnswer",null);
+        request1.put("registerSecurityHint",null);
+        request1.put("profileSmallPictureUrl","");
+        request1.put("phone","tKBekcicIwVkAmHranyTxw==");
+        request2.header("Authorization","Bearer "+token);
+        request2.header("Content-Type","application/json");
+        request2.header("Accept","application/json, text/plain, */*");
+        request2.body(request1.toJSONString());
+        Response response2 = request2.post("https://dev-gateway-api.bynfor.com/auth/user?bfsignature=%252BnQd4%252BXUZGR8y5UoF%252BKLmhX%252FTKCf0K5NmSRFVog72kJkGMUlOGJTEfvdCjSej3VYbFK5Zu5C69hsTYMNkPPmYw%253D%253D&bftimestamp=1640347638");
+        response2.prettyPrint();
     }
 }

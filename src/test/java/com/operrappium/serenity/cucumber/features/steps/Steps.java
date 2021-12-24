@@ -473,4 +473,9 @@ public class Steps extends ScenarioSteps {
         postRequestDemo.loginAndExtrcatToken();
     }
 
+    @Step
+    public void user_Login_and_edit_account_info() {
+        postRequestDemo.loginAndEditAccountInfo();
+    }
+
 }

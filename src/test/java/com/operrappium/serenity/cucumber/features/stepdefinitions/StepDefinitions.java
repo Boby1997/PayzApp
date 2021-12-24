@@ -507,4 +507,9 @@ public class StepDefinitions extends BasePage{
     public void user_login_and_extract_the_token() {
         steps.user_login_and_extract_the_token();
     }
+
+    @Given("^user Login and edit account info$")
+    public void user_Login_and_edit_account_info() {
+        steps.user_Login_and_edit_account_info();
+    }
 }

@@ -16,3 +16,6 @@ Feature: PayzApp Test
 
   Scenario: extract Token after login
     Then User login and extract the token
+
+  Scenario: edit User account info
+    And user Login and edit account info
