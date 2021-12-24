@@ -13,3 +13,6 @@ Feature: PayzApp Test
 
   Scenario: Login bynfor API
     And login with Bynfor API
+
+  Scenario: extract Token after login
+    Then User login and extract the token

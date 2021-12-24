@@ -468,4 +468,9 @@ public class Steps extends ScenarioSteps {
         postRequestDemo.loginBynfor2();
     }
 
+    @Step
+    public void user_login_and_extract_the_token() {
+        postRequestDemo.loginAndExtrcatToken();
+    }
+
 }

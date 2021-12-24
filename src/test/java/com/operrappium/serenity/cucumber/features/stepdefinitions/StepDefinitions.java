@@ -502,4 +502,9 @@ public class StepDefinitions extends BasePage{
     public void login_with_Bynfor_API() throws Throwable{
         steps.login_with_Bynfor_API();
     }
+
+    @Then("^User login and extract the token$")
+    public void user_login_and_extract_the_token() {
+        steps.user_login_and_extract_the_token();
+    }
 }

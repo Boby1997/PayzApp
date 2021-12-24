@@ -1,7 +1,10 @@
 package com.operrappium.serenity.cucumber.features.pages;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 
 import java.util.HashMap;
@@ -111,5 +114,28 @@ public class PostRequestDemo extends BasePage{
                 statusCode(200).
                 log().
                 all();
+    }
+
+    public void loginAndExtrcatToken(){
+        JSONObject request1 = new JSONObject();
+        request1.put("username","bynfor51");
+        request1.put("password","5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
+        RestAssured.baseURI ="https://dev-gateway-api.bynfor.com/auth/oauth/token";
+        RequestSpecification request = RestAssured.given();
+        request.header("Authorization","Basic and0Y2xpZW50OlBhc3MhMjM0");
+        request.header("Content-Type","application/x-www-form-urlencoded");
+        request.header("Accept","application/json, text/plain, */*");
+        request.queryParam("grant_type","password");
+        request.queryParam("scope","webclient customerfrontend");
+        request.queryParam("bfsignature","IYf2yKnvi8OBiW%2Fnf36JjzwcjfUJzHakMhRzHDZVBXfOUEZmuQLaVgDfpSN1LVv6bAp26ByI8ru7W5%2FxiFDTQw%3D%3D");
+        request.queryParam("password","5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
+        request.queryParam("username","bynfor51");
+        request.body(request1.toJSONString());
+        Response response = request.post("https://dev-gateway-api.bynfor.com/auth/oauth/token");
+        response.prettyPrint();
+        String jsonString = response.getBody().asString();
+        String token = JsonPath.from(jsonString).get("access_token");
+        System.out.println("token is : .... "+token);
+
     }
 }
