@@ -464,8 +464,8 @@ public class Steps extends ScenarioSteps {
     }
 
     @Step
-    public void login_with_Bynfor_API() {
-
+    public void login_with_Bynfor_API() throws Throwable{
+        postRequestDemo.loginBynfor2();
     }
 
 }

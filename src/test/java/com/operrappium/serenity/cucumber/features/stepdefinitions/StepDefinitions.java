@@ -499,7 +499,7 @@ public class StepDefinitions extends BasePage{
     }
 
     @Given("^login with Bynfor API$")
-    public void login_with_Bynfor_API() {
+    public void login_with_Bynfor_API() throws Throwable{
         steps.login_with_Bynfor_API();
     }
 }
